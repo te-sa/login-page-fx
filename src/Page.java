@@ -5,7 +5,7 @@ public class Page {
     @FXML
     Label label;
 
-    void greeting() {
-        label.setText("Hello");
+    void greeting(String username) {
+        label.setText("Hello " + username + "!");
     }
 }

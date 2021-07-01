@@ -19,9 +19,7 @@ public class Login {
 
     @FXML
     void login() throws IOException {
-        if (usernameField.getText().equals("username") && passwordField.getText().equals("password")) {
-            System.out.println("Login successful!");
-            // TODO: open new tab in case of successful login
+        if (!usernameField.getText().isBlank() && passwordField.getText().equals("password")) {
             switchScene();
         } else System.out.println("Invalid username or password");
     }
@@ -30,6 +28,11 @@ public class Login {
     private void switchScene() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page.fxml"));
         Parent root = loader.load();
+
+        // code from https://www.youtube.com/watch?v=wxhGKR3PQpo
+        Page page = loader.getController();
+        page.greeting(usernameField.getText());
+
         Stage stage = (Stage) loginButton.getScene().getWindow();
         stage.setScene(new Scene(root));
         // why do I not need stage.show() here?

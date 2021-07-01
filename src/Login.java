@@ -18,7 +18,7 @@ public class Login {
     Button loginButton;
 
     @FXML
-    void login() throws IOException {
+    void logIn() throws IOException {
         if (!usernameField.getText().isBlank() && passwordField.getText().equals("password")) {
             switchScene();
         } else System.out.println("Invalid username or password");

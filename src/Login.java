@@ -2,6 +2,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -19,9 +20,23 @@ public class Login {
 
     @FXML
     void logIn() throws IOException {
-        if (!usernameField.getText().isBlank() && passwordField.getText().equals("password")) {
+        boolean hasUsername = !usernameField.getText().isBlank();
+        if (hasUsername && passwordField.getText().equals("password")) {
             switchScene();
-        } else System.out.println("Invalid username or password");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            // TODO: make alert look better
+            alert.setContentText("Invalid username or password");
+            passwordField.setText("");
+
+            if (hasUsername) { // to set the focus on the field the user needs to change input in
+                passwordField.requestFocus();
+            } else {
+                usernameField.requestFocus();
+            }
+
+            alert.show();
+        }
     }
 
     // code from https://www.youtube.com/watch?v=qnwBZveyUtA

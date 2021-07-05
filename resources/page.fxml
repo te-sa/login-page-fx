@@ -6,15 +6,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Page">
+<AnchorPane prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Page">
     <children>
-        <Label fx:id="label" layoutY="192.0" prefHeight="17.0" prefWidth="350.0" style="-fx-alignment: CENTER;" />
+        <Label fx:id="label" layoutY="192.0" prefHeight="17.0" prefWidth="350.0" style="-fx-alignment: CENTER;"/>
         <ButtonBar prefHeight="40.0" prefWidth="350.0">
             <buttons>
-                <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logOut" text="Logout" />
+                <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logOut" text="Logout"/>
             </buttons>
             <padding>
-                <Insets right="6.0" />
+                <Insets right="6.0"/>
             </padding>
         </ButtonBar>
     </children>

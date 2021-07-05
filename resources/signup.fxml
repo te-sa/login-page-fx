@@ -16,8 +16,8 @@
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="400.0" prefWidth="350.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/16"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login">
+      prefHeight="400.0" prefWidth="350.0" style="-fx-background-color: coral;" xmlns="http://javafx.com/javafx/16"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="Signup">
     <children>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
                     prefHeight="400.0" prefWidth="350.0">
@@ -28,7 +28,7 @@
                     <children>
                         <ImageView fitHeight="49.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@locked.png"/>
+                                <Image url="@lockandkey.png"/>
                             </image>
                             <VBox.margin>
                                 <Insets bottom="10.0"/>
@@ -42,6 +42,8 @@
                                                    prefWidth="177.0"/>
                             </columnConstraints>
                             <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                                 <RowConstraints minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES"/>
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                                 <RowConstraints minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES"/>
@@ -66,33 +68,44 @@
                                         <Image url="@key.png"/>
                                     </image>
                                 </ImageView>
-                                <Label alignment="BOTTOM_LEFT" prefHeight="31.0" prefWidth="181.0"
+                                <PasswordField fx:id="passwordField1" layoutX="86.0" layoutY="56.0" prefHeight="25.0"
+                                               GridPane.columnSpan="2" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font size="10.0"/>
+                                    </font>
+                                </PasswordField>
+                                <ImageView fitHeight="22.0" fitWidth="21.0" layoutX="60.0" layoutY="58.0"
+                                           pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+                                    <image>
+                                        <Image url="@key.png"/>
+                                    </image>
+                                </ImageView>
+                                <Label alignment="BOTTOM_LEFT" prefHeight="22.0" prefWidth="187.0"
                                        text="Enter username:" GridPane.columnIndex="1"/>
-                                <Label alignment="BOTTOM_LEFT" layoutX="86.0" layoutY="27.0" prefHeight="26.0"
-                                       prefWidth="177.0" text="Enter password:" GridPane.columnIndex="1"
+                                <Label alignment="BOTTOM_LEFT" layoutX="86.0" layoutY="21.0" prefHeight="22.0"
+                                       prefWidth="180.0" text="Enter password:" GridPane.columnIndex="1"
                                        GridPane.rowIndex="2"/>
+                                <Label alignment="BOTTOM_LEFT" layoutX="86.0" layoutY="76.0" prefHeight="24.0"
+                                       prefWidth="183.0" text="Confirm password:" GridPane.columnIndex="1"
+                                       GridPane.rowIndex="4"/>
                             </children>
                             <padding>
                                 <Insets bottom="10.0" left="50.0" right="50.0" top="10.0"/>
                             </padding>
                         </GridPane>
-                        <Button fx:id="loginButton" mnemonicParsing="false" onAction="#logIn" prefHeight="25.0"
-                                prefWidth="202.0" style="-fx-background-color: skyblue;" text="Login">
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0"
+                                style="-fx-background-color: coral;" text="Sign Up">
                             <VBox.margin>
                                 <Insets bottom="7.0"/>
                             </VBox.margin>
                         </Button>
-                        <Button fx:id="signupButton" mnemonicParsing="false" onAction="#switchToSignup"
-                                prefHeight="25.0" prefWidth="202.0" text="Sign Up">
+                        <VBox alignment="BOTTOM_CENTER" prefHeight="0.0" prefWidth="263.0"/>
+                        <Button fx:id="backButton" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="25.0"
+                                prefWidth="202.0" text="Back to Login">
                             <VBox.margin>
                                 <Insets bottom="7.0"/>
                             </VBox.margin>
                         </Button>
-                        <VBox alignment="BOTTOM_CENTER" prefHeight="0.0" prefWidth="263.0">
-                            <children>
-                                <Label prefHeight="25.0" prefWidth="98.0" text="Forgot password?" textFill="#bbbbbb"/>
-                            </children>
-                        </VBox>
                     </children>
                 </VBox>
             </children>

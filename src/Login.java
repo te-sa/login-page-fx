@@ -17,12 +17,14 @@ public class Login {
     PasswordField passwordField;
     @FXML
     Button loginButton;
+    @FXML
+    Button signupButton;
 
     @FXML
     void logIn() throws IOException {
         boolean hasUsername = !usernameField.getText().isBlank();
         if (hasUsername && passwordField.getText().equals("password")) {
-            switchScene();
+            switchToPage();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             // TODO: make alert look better
@@ -39,8 +41,16 @@ public class Login {
         }
     }
 
+    @FXML
+    void switchToSignup() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("signup.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) signupButton.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+
     // code from https://www.youtube.com/watch?v=qnwBZveyUtA
-    private void switchScene() throws IOException {
+    private void switchToPage() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page.fxml"));
         Parent root = loader.load();
 

@@ -36,26 +36,36 @@ public class Signup {
         Matcher matchSpecial = specialChars.matcher(potentialPassword);
         Matcher matchNums = numbers.matcher(potentialPassword);
 
-        boolean longEnough = potentialPassword.length() >= 8;
-        boolean hasUpperCase = !potentialPassword.toLowerCase().equals(potentialPassword);
-        boolean hasLowerCase = !potentialPassword.toUpperCase().equals(potentialPassword);
-        boolean hasNum = matchNums.find();
-        boolean hasSpecial = matchSpecial.find();
-
-        return longEnough && hasUpperCase && hasLowerCase && hasNum && hasSpecial;
-
-        // TODO: add helpful error messages
+        if (potentialPassword.length() < 8) {
+            System.out.println("Your password should contain at least 8 characters");
+            return false;
+        } else if (potentialPassword.toUpperCase().equals(potentialPassword)
+                || potentialPassword.toLowerCase().equals(potentialPassword)) {
+            System.out.println("Your password should contain both uppercase and lowercase letters");
+            return false;
+        } else if (!matchNums.find()) {
+            System.out.println("Your password should contain at least one number");
+            return false;
+        } else if (!matchSpecial.find()) {
+            System.out.println("Your password should contain at least one special character");
+            return false;
+        } else return true;
     }
 
     private boolean passwordsMatch() {
-        return passwordField.getText().equals(confirmPasswordField.getText());
+        if (passwordField.getText().equals(confirmPasswordField.getText())) return true;
+        else {
+            System.out.println("Passwords don't match!");
+            return false;
+        }
     }
 
-    public void signUp() {
+    public void signUp() throws IOException {
         String user = usernameField.getText();
         if (availableUsername() && validPassword() && passwordsMatch()) {
             DataSource.getInstance().insertCredentials(user, passwordField.getText());
             System.out.printf("Welcome %s!", user);
+            switchToLogin();
         }
     }
 

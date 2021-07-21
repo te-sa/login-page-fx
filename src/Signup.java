@@ -23,14 +23,6 @@ public class Signup {
     @FXML
     private Button backButton;
 
-    public void setUsername(String username) {
-
-    }
-
-    public void setPassword(String password) {
-
-    }
-
     private boolean availableUsername() {
         return true;
     }
@@ -51,6 +43,8 @@ public class Signup {
         boolean hasSpecial = matchSpecial.find();
 
         return longEnough && hasUpperCase && hasLowerCase && hasNum && hasSpecial;
+
+        // TODO: add helpful error messages
     }
 
     private boolean passwordsMatch() {
@@ -58,9 +52,10 @@ public class Signup {
     }
 
     public void signUp() {
+        String user = usernameField.getText();
         if (availableUsername() && validPassword() && passwordsMatch()) {
-            setUsername(usernameField.getText());
-            setPassword(passwordField.getText());
+            DataSource.getInstance().insertCredentials(user, passwordField.getText());
+            System.out.printf("Welcome %s!", user);
         }
     }
 

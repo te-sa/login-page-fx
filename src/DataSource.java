@@ -43,7 +43,8 @@ public class DataSource {
 
     public void insertCredentials(String username, String password) {
         try (Statement statement = connection.createStatement()) {
-            statement.execute(String.format("INSERT INTO %s VALUES (\"%s\", \"%s\")", CREDENTIALS_TABLE, username, password));
+            statement.execute(String.format("INSERT INTO %s (%s, %s) VALUES (\"%s\", \"%s\")",
+                    CREDENTIALS_TABLE, USERNAME_COLUMN, PASSWORD_COLUMN, username, password));
         } catch (SQLException e) {
             e.printStackTrace();
         }

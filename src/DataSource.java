@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DataSource {
     public static final String DB_NAME = "login-page-fx.db";
@@ -47,6 +44,18 @@ public class DataSource {
                     CREDENTIALS_TABLE, USERNAME_COLUMN, PASSWORD_COLUMN, username, password));
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public boolean usernameExists(String username) {
+        try (Statement statement = connection.createStatement()) {
+            // is there a way to do this without a ResultSet?
+            ResultSet resultSet = statement.executeQuery(String.format("SELECT %s FROM %s WHERE %s = \"%s\"",
+                    USERNAME_COLUMN, CREDENTIALS_TABLE, USERNAME_COLUMN, username));
+            return resultSet.isBeforeFirst(); // https://stackoverflow.com/questions/867194/java-resultset-how-to-check-if-there-are-any-results
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }

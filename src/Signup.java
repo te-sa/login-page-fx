@@ -19,12 +19,13 @@ public class Signup {
     @FXML
     private PasswordField confirmPasswordField;
     @FXML
-    private Button signUpButton;
-    @FXML
     private Button backButton;
 
     private boolean availableUsername() {
-        return true;
+        if (DataSource.getInstance().usernameExists(usernameField.getText())) {
+            System.out.println("This username is already taken, please choose a different one.");
+            return false;
+        } else return true;
     }
 
     private boolean validPassword() {
@@ -65,7 +66,7 @@ public class Signup {
         if (availableUsername() && validPassword() && passwordsMatch()) {
             DataSource.getInstance().insertCredentials(user, passwordField.getText());
             System.out.printf("Welcome %s!", user);
-            switchToLogin();
+            switchToLogin(); // go to page immediately instead?
         }
     }
 

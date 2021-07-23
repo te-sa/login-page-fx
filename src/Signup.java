@@ -28,6 +28,13 @@ public class Signup {
         } else return true;
     }
 
+    private boolean validUsername() {
+        if (usernameField.getText().length() < 3) {
+            System.out.println("Your username should be at least 3 characters long");
+            return false;
+        } else return true;
+    }
+
     private boolean validPassword() {
         String potentialPassword = passwordField.getText();
 
@@ -63,7 +70,7 @@ public class Signup {
 
     public void signUp() throws IOException {
         String user = usernameField.getText();
-        if (availableUsername() && validPassword() && passwordsMatch()) {
+        if (validUsername() && availableUsername() && validPassword() && passwordsMatch()) {
             DataSource.getInstance().insertCredentials(user, passwordField.getText());
             System.out.printf("Welcome %s!", user);
             switchToLogin(); // go to page immediately instead?

@@ -22,8 +22,7 @@ public class Login {
 
     @FXML
     void logIn() throws IOException {
-        boolean hasUsername = !usernameField.getText().isBlank();
-        if (hasUsername && passwordField.getText().equals("password")) {
+        if (existingUsername() && matchingPassword()) {
             switchToPage();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -31,7 +30,7 @@ public class Login {
             alert.setContentText("Invalid username or password");
             passwordField.setText("");
 
-            if (hasUsername) { // to set the focus on the field the user needs to change input in
+            if (existingUsername()) { // to set the focus on the field the user needs to change input in
                 passwordField.requestFocus();
             } else {
                 usernameField.requestFocus();
@@ -40,6 +39,15 @@ public class Login {
             alert.show();
         }
     }
+
+    boolean existingUsername() {
+        return DataSource.getInstance().usernameExists(usernameField.getText());
+    }
+
+    boolean matchingPassword() {
+        return DataSource.getInstance().passwordMatches(usernameField.getText(), passwordField.getText());
+    }
+
 
     @FXML
     void switchToSignup() throws IOException {

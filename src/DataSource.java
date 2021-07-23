@@ -48,11 +48,22 @@ public class DataSource {
     }
 
     public boolean usernameExists(String username) {
-        try (Statement statement = connection.createStatement()) {
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(String.format("SELECT %s FROM %s WHERE %s = \"%s\"",
+                     USERNAME_COLUMN, CREDENTIALS_TABLE, USERNAME_COLUMN, username))) {
             // is there a way to do this without a ResultSet?
-            ResultSet resultSet = statement.executeQuery(String.format("SELECT %s FROM %s WHERE %s = \"%s\"",
-                    USERNAME_COLUMN, CREDENTIALS_TABLE, USERNAME_COLUMN, username));
             return resultSet.isBeforeFirst(); // https://stackoverflow.com/questions/867194/java-resultset-how-to-check-if-there-are-any-results
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean passwordMatches(String username, String password) {
+        try (Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(String.format("SELECT %s FROM %s WHERE %s = \"%s\"",
+                    PASSWORD_COLUMN, CREDENTIALS_TABLE, USERNAME_COLUMN, username));
+            return password.equals(resultSet.getString(1));
         } catch (SQLException e) {
             e.printStackTrace();
             return false;

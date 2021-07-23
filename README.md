@@ -4,8 +4,8 @@ Trying to learn more about JavaFX by building a simple login page.
 
 ## Ideas:
 
-- [ ] add signup functionality
-    - [ ] check for valid passwords (at least 8 chars, with uppercase, lowercase, number & special char)
+- [X] add signup functionality
+    - [X] check for valid passwords (at least 8 chars, with uppercase, lowercase, number & special char)
     - [ ] check that no username is assigned twice
 - [ ] make a clear visual distinction between login and signup
 - [ ] add warning if capslock is on while typing password?
@@ -17,3 +17,5 @@ Trying to learn more about JavaFX by building a simple login page.
 - [ ] add user counter and display message: You are the nth user! on page (only when they first sign in?)
 - [ ] autogenerate valid usernames to choose from?
 - [ ] add security questions? On page as security feature when changing username/password/trying to recall either
+- [ ] replace print statements with pop-ups/text in GUI
+- [ ] add way to recover password

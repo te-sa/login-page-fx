@@ -69,4 +69,15 @@ public class DataSource {
             return false;
         }
     }
+
+    public int getId(String username) {
+        try (Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(String.format("SELECT %s FROM %s WHERE %s = \"%s\"",
+                    ID_COLUMN, CREDENTIALS_TABLE, USERNAME_COLUMN, username));
+            return resultSet.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
 }

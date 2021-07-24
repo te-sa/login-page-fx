@@ -22,7 +22,19 @@ public class Page {
         stage.setScene(new Scene(root));
     }
 
+    String nth(String username) {
+        int n = DataSource.getInstance().getId(username);
+        return switch (n) {
+            case 1 -> "1st";
+            case 2 -> "2nd";
+            case 3 -> "3rd";
+            default -> n + "th";
+        };
+    }
+
+    // count how many times logged in?
     void greeting(String username) {
-        label.setText("Hello " + username + "!");
+        label.setText(String.format("Hello %s, you are the %s user!", username, nth(username)));
+        // and you have logged in n times
     }
 }

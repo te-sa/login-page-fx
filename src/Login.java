@@ -62,6 +62,8 @@ public class Login {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page.fxml"));
         Parent root = loader.load();
 
+        DataSource.getInstance().setTimesLoggedIn(usernameField.getText());
+
         // code from https://www.youtube.com/watch?v=wxhGKR3PQpo
         Page page = loader.getController();
         page.greeting(usernameField.getText());

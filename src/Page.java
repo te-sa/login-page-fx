@@ -32,9 +32,12 @@ public class Page {
         };
     }
 
-    // count how many times logged in?
+    int timesLoggedIn(String username) {
+        return DataSource.getInstance().getTimesLoggedIn(username);
+    }
+
     void greeting(String username) {
-        label.setText(String.format("Hello %s, you are the %s user!", username, nth(username)));
-        // and you have logged in n times
+        label.setText(String.format("Hello %s, you are the %s user and you have logged in %d times!",
+                username, nth(username), timesLoggedIn(username)));
     }
 }

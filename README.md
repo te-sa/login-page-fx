@@ -20,3 +20,8 @@ Trying to learn more about JavaFX by building a simple login page.
 - [ ] replace print statements with pop-ups/text in GUI
 - [ ] add way to recover password
 - [ ] give visual representation of password strength + show valid password specifications somewhere
+
+## Fix:
+
+- [X] set times logged in does not work for new users!
+  - issue was that no new record had been inserted into login_info 

@@ -47,6 +47,16 @@ public class DataSource {
         try (Statement statement = connection.createStatement()) {
             statement.execute(String.format("INSERT INTO %s (%s, %s) VALUES (\"%s\", \"%s\")",
                     CREDENTIALS_TABLE, CREDENTIALS_USERNAME_COLUMN, CREDENTIALS_PASSWORD_COLUMN, username, password));
+            insertLoginInfo();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void insertLoginInfo() {
+        try (Statement statement = connection.createStatement()) {
+            statement.execute(String.format("INSERT INTO %s (%s) VALUES (\"%d\")",
+                    LOGIN_INFO_TABLE, LOGIN_INFO_TIMES_LOGGED_IN_COLUMN, 0));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -86,6 +96,7 @@ public class DataSource {
         }
     }
 
+    // ERROR: this does not work for new users!
     public int getTimesLoggedIn(String username) {
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(

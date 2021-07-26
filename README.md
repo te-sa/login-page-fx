@@ -14,7 +14,7 @@ Trying to learn more about JavaFX by building a simple login page.
 - [ ] add warning before closing out where appropriate (page, not login screen)
 - [X] connect with SQL database (SQLite)
 - [ ] allow users to change their passwords (and usernames?)
-- [ ] add user counter and display message: You are the nth user! on page (only when they first sign in?)
+- [X] add user counter and display message: You are the nth user! on page (only when they first sign in?)
 - [ ] autogenerate valid usernames to choose from?
 - [ ] add security questions? On page as security feature when changing username/password/trying to recall either
 - [ ] replace print statements with pop-ups/text in GUI

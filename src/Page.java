@@ -37,6 +37,7 @@ public class Page {
     }
 
     void greeting(String username) {
+        // TODO: fix so it displays fully
         label.setText(String.format("Hello %s, you are the %s user and you have logged in %d times!",
                 username, nth(username), timesLoggedIn(username)));
     }

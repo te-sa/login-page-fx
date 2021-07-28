@@ -1,6 +1,6 @@
 # login-page-fx
 
-Trying to learn more about JavaFX by building a simple login page.
+Trying to learn more about JavaFX and SQL databases by building a simple login page.
 
 ## Ideas:
 
@@ -20,6 +20,7 @@ Trying to learn more about JavaFX by building a simple login page.
 - [ ] replace print statements with pop-ups/text in GUI
 - [ ] add way to recover password
 - [ ] give visual representation of password strength + show valid password specifications somewhere
+- [ ] change font to something nicer
 
 ## Fix:
 

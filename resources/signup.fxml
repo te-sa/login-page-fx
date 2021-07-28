@@ -46,10 +46,14 @@
                 <padding>
                     <Insets bottom="10.0" left="50.0" right="50.0" top="10.0"/>
                 </padding>
-                <TextField fx:id="usernameField" GridPane.columnSpan="2" GridPane.rowIndex="1"/>
+                <TextField fx:id="usernameField" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Arial" size="13.0"/>
+                    </font>
+                </TextField>
                 <PasswordField fx:id="passwordField" prefHeight="25.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
                     <font>
-                        <Font size="10.0"/>
+                        <Font name="Arial" size="13.0"/>
                     </font>
                 </PasswordField>
                 <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
@@ -62,7 +66,7 @@
                 <PasswordField fx:id="confirmPasswordField" layoutX="86.0" layoutY="56.0" prefHeight="25.0"
                                GridPane.columnSpan="2" GridPane.rowIndex="5">
                     <font>
-                        <Font size="10.0"/>
+                        <Font name="Arial" size="13.0"/>
                     </font>
                 </PasswordField>
                 <ImageView fitHeight="22.0" fitWidth="21.0" layoutX="60.0" layoutY="58.0" pickOnBounds="true"
@@ -70,17 +74,32 @@
                     <Image url="@key.png"/>
                 </ImageView>
                 <Label alignment="BOTTOM_LEFT" prefHeight="20.0" prefWidth="180.0" text="Enter username:"
-                       GridPane.columnIndex="1"/>
+                       GridPane.columnIndex="1">
+                    <font>
+                        <Font name="Arial" size="13.0"/>
+                    </font>
+                </Label>
                 <Label alignment="BOTTOM_LEFT" layoutX="86.0" layoutY="27.0" prefHeight="20.0" prefWidth="180.0"
-                       text="Enter password:" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                       text="Enter password:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="Arial" size="13.0"/>
+                    </font>
+                </Label>
                 <Label alignment="BOTTOM_LEFT" layoutX="86.0" layoutY="76.0" prefHeight="20.0" prefWidth="180.0"
-                       text="Confirm password:" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                       text="Confirm password:" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <font>
+                        <Font name="Arial" size="13.0"/>
+                    </font>
+                </Label>
             </GridPane>
             <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#signUp" prefHeight="25.0" prefWidth="202.0"
                     style="-fx-background-color: coral;" text="Sign Up">
                 <VBox.margin>
                     <Insets bottom="7.0"/>
                 </VBox.margin>
+                <font>
+                    <Font name="Arial" size="13.0"/>
+                </font>
             </Button>
             <VBox alignment="BOTTOM_CENTER" prefHeight="0.0" prefWidth="263.0"/>
             <Button fx:id="backButton" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="25.0"
@@ -88,6 +107,9 @@
                 <VBox.margin>
                     <Insets bottom="7.0"/>
                 </VBox.margin>
+                <font>
+                    <Font name="Arial" size="13.0"/>
+                </font>
             </Button>
         </VBox>
     </AnchorPane>
